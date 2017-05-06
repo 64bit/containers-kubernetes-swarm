@@ -15,7 +15,7 @@
 # Expose as Service:
 ./infrastructure/kubernetes/GKE/create_service_and_expose.sh
 # After above command run "kubectl get service" to get external IP of load balancer
-# access app on :  http://<external-IP>
+# access app on :  http://<external-IP>/hello
 
 # Scale Up:
 ./infrastructure/kubernetes/common/scale_up.sh
@@ -44,7 +44,7 @@ minikube start
 ./infrastructure/kubernetes/local/create_service_and_expose.sh
 # After above command we need to find the port on which we can access app on VM
 # 1) Get NodePort : ./infrastructure/kubernetes/common/get_node_port.sh
-# 2) Access app on : http://<virtual-machine-ip>:<node-port>
+# 2) Access app on : http://<virtual-machine-ip>:<node-port>/hello
 
 # Scale Up:
 ./infrastructure/kubernetes/common/scale_up.sh
@@ -60,5 +60,38 @@ minikube start
 
 ```
 
+# Swarm
+
+## Run app on local Swarm Cluster
+
+```
+# Start Cluster of Machines
+./infrastructure/swarm/create_machines.sh
+
+# Create Swarm: Assign Master Node and join it from Worker Nodes:
+./infrastructure/swarm/create_swarm.sh
+
+# Run app as Service on Swarm cluster:
+./infrastructure/swarm/create_service.sh
+
+# Get any manager IP and access app:
+# http://<manager-ip>:8080/hello 
+
+# Run visualizer container (dockersamples/visualizer):
+./infrastructure/swarm/visualizer.sh
+# Access visualizer on http://<manager-ip>:9999
+
+# Run cAdvisor on manager1 : 
+./infrastructure/swarm/monitor.sh
+# Acess monitor on http://<ip-of-manager1>:8888
+
+# Scale service:
+./infrastructure/swarm/scale_service.sh
+
+# Downscale service:
+./infrastructure/swarm/downscale_service.sh
+
+
+```
 
 
