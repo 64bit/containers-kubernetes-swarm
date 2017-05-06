@@ -12,7 +12,7 @@
 # Deploy app:
 ./infrastructure/kubernetes/common/deploy_app.sh
 
-# Expose at Service:
+# Expose as Service:
 ./infrastructure/kubernetes/GKE/create_service_and_expose.sh
 # After above command run "kubectl get service" to get external IP of load balancer
 # access app on :  http://<external-IP>
@@ -40,10 +40,10 @@ minikube start
 # Deploy app:
 ./infrastructure/kubernetes/common/deploy_app.sh
 
-# Expose at Service:
+# Expose as Service:
 ./infrastructure/kubernetes/local/create_service_and_expose.sh
 # After above command we need to find the port on which we can access app on VM
-# 1) Get NodePort : cat ./infrastructure/kubernetes/common/get_node_port.sh
+# 1) Get NodePort : ./infrastructure/kubernetes/common/get_node_port.sh
 # 2) Access app on : http://<virtual-machine-ip>:<node-port>
 
 # Scale Up:
