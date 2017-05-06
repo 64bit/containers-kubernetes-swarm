@@ -59,6 +59,15 @@ minikube start
 ./infrastructure/kubernetes/common/rollback_update.sh
 
 ```
+### Cleanup everything we started on Kubernetes
+```
+# delete deployment 
+./infrastructure/kubernetes/common/delete_deployment.sh
+
+# delete service
+./infrastructure/kubernetes/common/delete_service.sh
+
+```
 
 # Swarm
 
@@ -94,4 +103,20 @@ minikube start
 
 ```
 
+### Cleanup everything we started on Swarm
+
+```
+# Remove app service:
+./infrastructure/swarm/rm_service.sh
+
+# Remove visualizer service: 
+./infrastructure/swarm/rm_visualizer.sh
+
+# Remove cAdvisor monitor:
+./infrastructure/swarm/rm_monitor.sh
+
+# Stop virtual machines:
+./infrastructure/swarm/stop_machines.sh
+
+```
 
