@@ -1,3 +1,13 @@
+# Prerequisites
+
+
+* Docker (1.27)
+* kubectl (1.6) 
+* Virtualbox
+* minikube (v0.18.0)
+* gcloud (from google-cloud-sdk only required for GKE )
+
+
 # Kubernetes
 
 ## Run app on Kubernetes cluster on GKE
